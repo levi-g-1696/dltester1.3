@@ -119,7 +119,6 @@ namespace UI
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(403, 517);
             this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // btnCancel
             // 
@@ -301,7 +300,7 @@ namespace UI
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(169, 23);
             this.txtName.TabIndex = 23;
-            this.txtName.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
+            this.txtName.TextChanged += new System.EventHandler(this.t);
             // 
             // txtMon8
             // 

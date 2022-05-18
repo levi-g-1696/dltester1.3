@@ -45,16 +45,6 @@ namespace UI
             }
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void textBox9_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -380,6 +370,11 @@ namespace UI
                     break;
 
             }
+        }
+
+        private void t(object sender, EventArgs e)
+        {
+
         }
     }
 }

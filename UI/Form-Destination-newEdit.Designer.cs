@@ -105,7 +105,6 @@ namespace UI
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(317, 23);
             this.txtPassword.TabIndex = 15;
-            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
             // txtUser
             // 
@@ -121,7 +120,6 @@ namespace UI
             this.txtVirPath.Name = "txtVirPath";
             this.txtVirPath.Size = new System.Drawing.Size(317, 23);
             this.txtVirPath.TabIndex = 13;
-            this.txtVirPath.TextChanged += new System.EventHandler(this.txtVirPath_TextChanged);
             // 
             // txtPort
             // 

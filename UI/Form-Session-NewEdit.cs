@@ -114,11 +114,6 @@ MessageBoxButtons.OK, MessageBoxIcon.Error);
 
         }
 
-        private void mtxtNumTiming_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
-        }
-
         private void txtName_TextChanged(object sender, EventArgs e)
         {
             txtName.BackColor = Color.White;
@@ -201,11 +196,6 @@ MessageBoxButtons.OK, MessageBoxIcon.Error);
         {
                         Form_ValuesTimesView form_ValuesTimesView = new Form_ValuesTimesView (Editmode.Edit,this);
             form_ValuesTimesView.Show();
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
         }
         public bool UIinputValidation()
         {         

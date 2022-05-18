@@ -30,6 +30,7 @@ namespace UI
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnCrDate = new System.Windows.Forms.Button();
             this.txtCreationDate = new System.Windows.Forms.TextBox();
             this.txtValTimes = new System.Windows.Forms.TextBox();
             this.txtMonList = new System.Windows.Forms.TextBox();
@@ -56,7 +57,6 @@ namespace UI
             this.lblCreationDate = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.lblPanelName = new System.Windows.Forms.Label();
-            this.btnCrDate = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -97,6 +97,16 @@ namespace UI
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // btnCrDate
+            // 
+            this.btnCrDate.Location = new System.Drawing.Point(420, 96);
+            this.btnCrDate.Name = "btnCrDate";
+            this.btnCrDate.Size = new System.Drawing.Size(63, 23);
+            this.btnCrDate.TabIndex = 31;
+            this.btnCrDate.Text = "Update";
+            this.btnCrDate.UseVisualStyleBackColor = true;
+            this.btnCrDate.Click += new System.EventHandler(this.btnCrDate_Click);
+            // 
             // txtCreationDate
             // 
             this.txtCreationDate.ForeColor = System.Drawing.SystemColors.InactiveCaption;
@@ -126,7 +136,6 @@ namespace UI
             this.txtDestination.Name = "txtDestination";
             this.txtDestination.Size = new System.Drawing.Size(272, 23);
             this.txtDestination.TabIndex = 26;
-            this.txtDestination.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // btnSave
             // 
@@ -186,7 +195,6 @@ namespace UI
             this.mtxtNumTiming.Size = new System.Drawing.Size(49, 23);
             this.mtxtNumTiming.TabIndex = 19;
             this.mtxtNumTiming.ValidatingType = typeof(int);
-            this.mtxtNumTiming.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.mtxtNumTiming_MaskInputRejected);
             // 
             // dtpStartTime
             // 
@@ -234,7 +242,6 @@ namespace UI
             this.cmbExpiration.Name = "cmbExpiration";
             this.cmbExpiration.Size = new System.Drawing.Size(121, 23);
             this.cmbExpiration.TabIndex = 12;
-            this.cmbExpiration.SelectedIndexChanged += new System.EventHandler(this.cmbExpiration_SelectedIndexChanged);
             // 
             // txtName
             // 
@@ -242,7 +249,6 @@ namespace UI
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(350, 23);
             this.txtName.TabIndex = 11;
-            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
             // lblDateValue
             // 
@@ -342,16 +348,6 @@ namespace UI
             this.lblPanelName.Size = new System.Drawing.Size(110, 15);
             this.lblPanelName.TabIndex = 0;
             this.lblPanelName.Text = "Create New Session";
-            // 
-            // btnCrDate
-            // 
-            this.btnCrDate.Location = new System.Drawing.Point(420, 96);
-            this.btnCrDate.Name = "btnCrDate";
-            this.btnCrDate.Size = new System.Drawing.Size(63, 23);
-            this.btnCrDate.TabIndex = 31;
-            this.btnCrDate.Text = "Update";
-            this.btnCrDate.UseVisualStyleBackColor = true;
-            this.btnCrDate.Click += new System.EventHandler(this.btnCrDate_Click);
             // 
             // Form_Session_NewEdit
             // 

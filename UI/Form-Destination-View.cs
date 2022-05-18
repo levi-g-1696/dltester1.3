@@ -38,11 +38,6 @@ namespace UI
             form_New_Destination.Show();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();

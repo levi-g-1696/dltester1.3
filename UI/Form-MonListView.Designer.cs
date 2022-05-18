@@ -115,7 +115,6 @@ namespace UI
             this.gridMonitors.RowTemplate.Height = 25;
             this.gridMonitors.Size = new System.Drawing.Size(571, 268);
             this.gridMonitors.TabIndex = 1;
-            this.gridMonitors.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // lblPanelName
             // 
