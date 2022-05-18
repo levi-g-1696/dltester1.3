@@ -67,7 +67,6 @@ namespace UI
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(401, 525);
             this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // lblMin
             // 
@@ -140,7 +139,6 @@ namespace UI
             this.gridValTimes.RowTemplate.Height = 25;
             this.gridValTimes.Size = new System.Drawing.Size(345, 282);
             this.gridValTimes.TabIndex = 3;
-            this.gridValTimes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // clMonitor
             // 
