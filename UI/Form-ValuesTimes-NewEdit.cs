@@ -22,11 +22,15 @@ namespace UI
         Editmode savemode;
         Form_ValuesTimesView fatherForm;
         ValuesTime valuesTime;
+        public bool globalValid = true;
+
+
         public Form_ValuesTimes_NewEdit(Editmode editmode, Form_ValuesTimesView fatherFormArg)
         {
             InitializeComponent();
             savemode = editmode;
             fatherForm = fatherFormArg;
+            bool globalValid = true;
             if (editmode == Editmode.New) // empty form
             {
                 valuesTime = new ValuesTime();
@@ -58,7 +62,7 @@ namespace UI
                 else txtDuration.Text = "??";
 
                 //  *********  fill table  ************** 
-                string[] monNamesArr = UISessionValue.ValTimes.MonNames.Split(',');
+                string[] monNamesArr = UISessionValue.MonitorList.MonitorNames.Split(',');
 
                 string[] monValuesFrom = UISessionValue.ValTimes.MonFrom.Split(',');
                 string[] monValuesTo = UISessionValue.ValTimes.MonTo.Split(',');
@@ -86,18 +90,26 @@ namespace UI
         {
             monitorsFromValues = string.Empty;
 
-            for (int rows = 0; rows < gridValTimes.Rows.Count; rows++)
+            for (int rows = 0; rows < gridValTimes.Rows.Count-1; rows++)
             {
-                monitorsFromValues += gridValTimes.Rows[rows].Cells[1].Value;
-                if (rows < gridValTimes.Rows.Count - 2) monitorsFromValues += ",";
-            }
 
+              if (GridCellValidation(gridValTimes, rows, 1))
+                {
+                    monitorsFromValues += gridValTimes.Rows[rows].Cells[1].Value;
+                    if (rows < gridValTimes.Rows.Count - 2) monitorsFromValues += ",";
+                }
+                            }
             monitorsToValues = string.Empty;
 
-            for (int rows = 0; rows < gridValTimes.Rows.Count; rows++)
+            for (int rows = 0; rows < gridValTimes.Rows.Count-1; rows++)
             {
-                monitorsToValues += gridValTimes.Rows[rows].Cells[2].Value;
-                if (rows < gridValTimes.Rows.Count - 2) monitorsToValues += ",";
+                if (GridCellValidation(gridValTimes, rows, 2))
+                {
+                    monitorsToValues += gridValTimes.Rows[rows].Cells[2].Value;
+                    if (rows < gridValTimes.Rows.Count - 2) monitorsToValues += ",";
+                }
+               
+                
             }
             if (UIinputValidation())
             {
@@ -106,29 +118,43 @@ namespace UI
                 UISessionValue.ValTimes.MonTo = monitorsToValues;
                 UISessionValue.ValTimes.DuringTime = double.Parse(txtDuration.Text);
                 UISessionValue.ValTimes.MonListId = UISessionValue.MonitorList.MonListId;
+             //   UISessionValue.ValTimes.ValTimesId = 0;
                 Save();
                 RefreshPreviousWindow();
                 this.Close();
             }
+            globalValid= true;
         }
+        public bool GridCellValidation(DataGridView valtimes, int row, int cell)
+        {
+            double d;
+            if (!double.TryParse((string)valtimes.Rows[row].Cells[cell].Value, out d))
+            {
+                valtimes.Rows[row].Cells[cell].Value = "???";
+              
+                globalValid = false;
+            }
 
+            return globalValid;
+        }
         public bool UIinputValidation()
         {
             double d;
-            bool isValid = true;
+            
             string regexName = "^([a-zA-Z][a-zA-Z0-9' ]{0,49})$";
             if (!Regex.Match(txtName.Text, regexName).Success)
             {
                 txtName.BackColor = Color.Salmon;
-                isValid = false;
+               
+                globalValid = false;
             }
 
             if (!double.TryParse(txtDuration.Text, out d))
             {
                 txtDuration.BackColor = Color.Salmon;
-                isValid = false;
+                globalValid = false;
             }
-            return isValid;
+            return globalValid;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

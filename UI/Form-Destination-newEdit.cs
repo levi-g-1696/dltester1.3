@@ -22,6 +22,10 @@ namespace UI
             saveMode = editmode;
             if (editmode == Editmode.New) // empty form
             {
+                cmbPotocol.SelectedIndex = 1;
+                UISessionValue.Destination.Protocolid = 21;
+                UISessionValue.Destination.ProtocolType = "FTP";
+                UISessionValue.Destination.DestinationId = 0;
 
                 txtVirPath.Text = "/";
             }
@@ -130,7 +134,21 @@ namespace UI
                 isValid = false;
             }
 
-            //================================
+            //===================  user =============
+            if (!Regex.Match(txtUser.Text, regexName).Success)
+            {
+                txtUser.BackColor = Color.Salmon;
+                isValid = false;
+            }
+
+            //================== PASSWORD ===============
+            
+            if (txtPassword.Text.Length<3)
+            {
+                txtPassword.BackColor = Color.Salmon;
+                isValid = false;
+            }
+
             return isValid;
         }
 

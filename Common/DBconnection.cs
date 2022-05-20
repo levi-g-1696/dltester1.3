@@ -89,6 +89,29 @@ namespace Manage
             }
         }
         //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^6\
+        public void SaveValuesTimes(ValuesTime valuesTime, Entities.Editmode savemode)
+        {
+            using (var db = new DL_TesterContext())
+            {
+                if (savemode == Entities.Editmode.New)
+                {
+                    valuesTime.ValTimesId = 0;
+                    db.ValuesTimes.Add(valuesTime);
+                    db.SaveChanges();
+
+                }
+                else
+                {
+                    var entity = db.ValuesTimes.Find(valuesTime.ValTimesId);
+                    if (entity != null)
+                    {
+                        Methods.CopyPropertiesTo(valuesTime, entity);
+                        db.SaveChanges();
+                    }
+                }
+            }
+
+        }
 
         public void SaveDataSched(DataSchedual dataSchedual)
         {

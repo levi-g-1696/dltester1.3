@@ -15,7 +15,7 @@ namespace UI
             DBconnection dbconnection = new DBconnection(); 
             UI.Form_Destination_NewEdit.SaveAction += dbconnection.SaveDestination ;
             UI.Form_MonList_NewEdit.SaveAction += dbconnection.SaveMonitorList;
-          //  UI.Form_ValuesTimes_NewEdit.SaveToDB += dbconnection.SaveValuesTimes;
+            UI.Form_ValuesTimes_NewEdit.SaveToDB += dbconnection.SaveValuesTimes;
             UI.Form_ValuesTimes_NewEdit.GetFromDBMonitorNames += dbconnection.GetMonitorNames;
             UI.Form_DestinationsView.ReadAction += dbconnection.ReadDestinations;
         //    UI.Form_SessionsView.ReadFromDB += dbconnection.ReadSessions;
@@ -35,6 +35,7 @@ namespace UI
             UI.Form_ValuesTimesView.ReadFromDBforThisMonList += dbconnection.ReadValTimeForOneSession;
             UI.Form_ValuesTimesView.ReadOneFromDB += dbconnection.FindValTime;
             UI.Form_ValuesTimesView.RemoveFromDB += dbconnection.RemoveValTime;
+
 
         }
 
