@@ -10,7 +10,6 @@ namespace Manage
 
     public class DBconnection
     {
-        Session newsession = new Session();
         public DBconnection()
         {
 

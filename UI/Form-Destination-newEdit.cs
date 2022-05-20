@@ -104,10 +104,13 @@ namespace UI
             //==================== Port  ==========
 
             if (!int.TryParse(txtPort.Text, out p))
+
             {
+
                 txtPort.BackColor = Color.Salmon;
                 isValid = false;
             }
+
 
             else
             {
